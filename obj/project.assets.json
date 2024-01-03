@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/vec70r/Desktop/UNI/paradigmasProgramacion/edificio/edificio.csproj",
+      "projectUniqueName": "/home/vec70r/Desktop/UNI/paradigmasProgramacion/sistemaAdministracionEdificio/edificio.csproj",
       "projectName": "edificio",
-      "projectPath": "/home/vec70r/Desktop/UNI/paradigmasProgramacion/edificio/edificio.csproj",
+      "projectPath": "/home/vec70r/Desktop/UNI/paradigmasProgramacion/sistemaAdministracionEdificio/edificio.csproj",
       "packagesPath": "/home/vec70r/.nuget/packages/",
-      "outputPath": "/home/vec70r/Desktop/UNI/paradigmasProgramacion/edificio/obj/",
+      "outputPath": "/home/vec70r/Desktop/UNI/paradigmasProgramacion/sistemaAdministracionEdificio/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/vec70r/.nuget/NuGet/NuGet.Config"

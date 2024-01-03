@@ -1,0 +1,15 @@
+/home/vec70r/Desktop/UNI/paradigmasProgramacion/sistemaAdministracionEdificio/bin/Debug/net8.0/edificio
+/home/vec70r/Desktop/UNI/paradigmasProgramacion/sistemaAdministracionEdificio/bin/Debug/net8.0/edificio.deps.json
+/home/vec70r/Desktop/UNI/paradigmasProgramacion/sistemaAdministracionEdificio/bin/Debug/net8.0/edificio.runtimeconfig.json
+/home/vec70r/Desktop/UNI/paradigmasProgramacion/sistemaAdministracionEdificio/bin/Debug/net8.0/edificio.dll
+/home/vec70r/Desktop/UNI/paradigmasProgramacion/sistemaAdministracionEdificio/bin/Debug/net8.0/edificio.pdb
+/home/vec70r/Desktop/UNI/paradigmasProgramacion/sistemaAdministracionEdificio/obj/Debug/net8.0/edificio.GeneratedMSBuildEditorConfig.editorconfig
+/home/vec70r/Desktop/UNI/paradigmasProgramacion/sistemaAdministracionEdificio/obj/Debug/net8.0/edificio.AssemblyInfoInputs.cache
+/home/vec70r/Desktop/UNI/paradigmasProgramacion/sistemaAdministracionEdificio/obj/Debug/net8.0/edificio.AssemblyInfo.cs
+/home/vec70r/Desktop/UNI/paradigmasProgramacion/sistemaAdministracionEdificio/obj/Debug/net8.0/edificio.csproj.CoreCompileInputs.cache
+/home/vec70r/Desktop/UNI/paradigmasProgramacion/sistemaAdministracionEdificio/obj/Debug/net8.0/edificio.sourcelink.json
+/home/vec70r/Desktop/UNI/paradigmasProgramacion/sistemaAdministracionEdificio/obj/Debug/net8.0/edificio.dll
+/home/vec70r/Desktop/UNI/paradigmasProgramacion/sistemaAdministracionEdificio/obj/Debug/net8.0/refint/edificio.dll
+/home/vec70r/Desktop/UNI/paradigmasProgramacion/sistemaAdministracionEdificio/obj/Debug/net8.0/edificio.pdb
+/home/vec70r/Desktop/UNI/paradigmasProgramacion/sistemaAdministracionEdificio/obj/Debug/net8.0/edificio.genruntimeconfig.cache
+/home/vec70r/Desktop/UNI/paradigmasProgramacion/sistemaAdministracionEdificio/obj/Debug/net8.0/ref/edificio.dll
