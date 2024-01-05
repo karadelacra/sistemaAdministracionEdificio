@@ -13,3 +13,18 @@
 /home/vec70r/Desktop/UNI/paradigmasProgramacion/sistemaAdministracionEdificio/obj/Debug/net8.0/edificio.pdb
 /home/vec70r/Desktop/UNI/paradigmasProgramacion/sistemaAdministracionEdificio/obj/Debug/net8.0/edificio.genruntimeconfig.cache
 /home/vec70r/Desktop/UNI/paradigmasProgramacion/sistemaAdministracionEdificio/obj/Debug/net8.0/ref/edificio.dll
+C:\Users\padil\OneDrive\Documentos\PadillaK\ESCOM\CAMPECHANO 2, 3 y 4\paradigmas\proyecto\sistemaAdministracionEdificio\bin\Debug\net8.0\edificio.exe
+C:\Users\padil\OneDrive\Documentos\PadillaK\ESCOM\CAMPECHANO 2, 3 y 4\paradigmas\proyecto\sistemaAdministracionEdificio\bin\Debug\net8.0\edificio.deps.json
+C:\Users\padil\OneDrive\Documentos\PadillaK\ESCOM\CAMPECHANO 2, 3 y 4\paradigmas\proyecto\sistemaAdministracionEdificio\bin\Debug\net8.0\edificio.runtimeconfig.json
+C:\Users\padil\OneDrive\Documentos\PadillaK\ESCOM\CAMPECHANO 2, 3 y 4\paradigmas\proyecto\sistemaAdministracionEdificio\bin\Debug\net8.0\edificio.dll
+C:\Users\padil\OneDrive\Documentos\PadillaK\ESCOM\CAMPECHANO 2, 3 y 4\paradigmas\proyecto\sistemaAdministracionEdificio\bin\Debug\net8.0\edificio.pdb
+C:\Users\padil\OneDrive\Documentos\PadillaK\ESCOM\CAMPECHANO 2, 3 y 4\paradigmas\proyecto\sistemaAdministracionEdificio\obj\Debug\net8.0\edificio.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\padil\OneDrive\Documentos\PadillaK\ESCOM\CAMPECHANO 2, 3 y 4\paradigmas\proyecto\sistemaAdministracionEdificio\obj\Debug\net8.0\edificio.AssemblyInfoInputs.cache
+C:\Users\padil\OneDrive\Documentos\PadillaK\ESCOM\CAMPECHANO 2, 3 y 4\paradigmas\proyecto\sistemaAdministracionEdificio\obj\Debug\net8.0\edificio.AssemblyInfo.cs
+C:\Users\padil\OneDrive\Documentos\PadillaK\ESCOM\CAMPECHANO 2, 3 y 4\paradigmas\proyecto\sistemaAdministracionEdificio\obj\Debug\net8.0\edificio.csproj.CoreCompileInputs.cache
+C:\Users\padil\OneDrive\Documentos\PadillaK\ESCOM\CAMPECHANO 2, 3 y 4\paradigmas\proyecto\sistemaAdministracionEdificio\obj\Debug\net8.0\edificio.sourcelink.json
+C:\Users\padil\OneDrive\Documentos\PadillaK\ESCOM\CAMPECHANO 2, 3 y 4\paradigmas\proyecto\sistemaAdministracionEdificio\obj\Debug\net8.0\edificio.dll
+C:\Users\padil\OneDrive\Documentos\PadillaK\ESCOM\CAMPECHANO 2, 3 y 4\paradigmas\proyecto\sistemaAdministracionEdificio\obj\Debug\net8.0\refint\edificio.dll
+C:\Users\padil\OneDrive\Documentos\PadillaK\ESCOM\CAMPECHANO 2, 3 y 4\paradigmas\proyecto\sistemaAdministracionEdificio\obj\Debug\net8.0\edificio.pdb
+C:\Users\padil\OneDrive\Documentos\PadillaK\ESCOM\CAMPECHANO 2, 3 y 4\paradigmas\proyecto\sistemaAdministracionEdificio\obj\Debug\net8.0\edificio.genruntimeconfig.cache
+C:\Users\padil\OneDrive\Documentos\PadillaK\ESCOM\CAMPECHANO 2, 3 y 4\paradigmas\proyecto\sistemaAdministracionEdificio\obj\Debug\net8.0\ref\edificio.dll
