@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Diagnostics;
 
 namespace SistemaAdministracionEdificio
@@ -10,6 +11,18 @@ namespace SistemaAdministracionEdificio
 	{
 		protected string nombre;
 		protected decimal saldo;
+		
+		public Propietario()
+		{
+			nombre = "";
+			saldo = 0;
+		}
+		
+		public Propietario(string nombre, decimal saldo)
+		{
+			this.nombre = nombre;
+			this.saldo = saldo;
+		}
 		
 		public string Nombre{
 			get {return nombre;}
@@ -26,6 +39,18 @@ namespace SistemaAdministracionEdificio
 	{
 		protected string nombre;
 		protected decimal costo;
+		
+		public Servicio()
+		{
+			nombre = "";
+			costo = 0;
+		}
+		
+		public Servicio(string nombre, decimal costo)
+		{
+			this.nombre = nombre;
+			this.costo = costo;
+		}
 
 		public string Nombre{
 			get {return nombre;}
@@ -42,6 +67,18 @@ namespace SistemaAdministracionEdificio
 	{
 		protected Propietario propietario;
 		protected decimal cuotaMantenimiento;
+		
+		public Departamento()
+		{
+			propietario = new Propietario();
+			cuotaMantenimiento = 0;
+		}
+		
+		public Departamento(Propietario propietario, decimal cuotaMantenimiento)
+		{
+			this.propietario = propietario;
+			this.cuotaMantenimiento = cuotaMantenimiento;
+		}
 
 		public Propietario Propietario{
 			get {return propietario;}
@@ -68,6 +105,11 @@ namespace SistemaAdministracionEdificio
 			ingresos = 0;
 			egresos = 0;
 		}
+		
+		public List<Departamento> Departamentos{
+			get {return departamentos;}
+			set {departamentos = value;}
+		}
 
 		public void AgregarDepartamento(Departamento departamento)
 		{
@@ -84,6 +126,8 @@ namespace SistemaAdministracionEdificio
 			if (departamento.Propietario.Saldo >= departamento.CuotaMantenimiento)
 			{
 				departamento.Propietario.Saldo -= departamento.CuotaMantenimiento;
+				// imprimir en pantalla el pago realizado
+				Console.WriteLine($"Se realizo el pago de mantenimiento del departamento {departamento.Propietario.Nombre} por un total de {departamento.CuotaMantenimiento:C}");
 				ingresos += departamento.CuotaMantenimiento;
 			}
 			else
@@ -97,25 +141,84 @@ namespace SistemaAdministracionEdificio
 			foreach (var servicio in servicios)
 			{
 				egresos += servicio.Costo;
+				Console.WriteLine($"Se pago el servicio de {servicio.Nombre} por un total de {servicio.Costo:C}");
 			}
 			Console.WriteLine($"Se pagaron los servicios por un total de {egresos:C}");
 		}
 
 		public void GenerarEstadoCuenta()
 		{
-			Console.WriteLine("Estado de cuenta mensual:");
-			Console.WriteLine($"Ingresos: {ingresos:C}");
-			Console.WriteLine($"Egresos: {egresos:C}");
-			Console.WriteLine($"Saldo total: {CalcularSaldoTotal():C}");
+			// archivo de prueba
+			string rutaArchivo = "prueba.txt";
 
+		// Contenido que deseas escribir en el archivo
+		string contenido = "Este es un ejemplo de contenido.\nOtra línea de texto.";
+
+		// Escribe el contenido en el archivo
+		File.WriteAllText(rutaArchivo, contenido);
+
+		Console.WriteLine("Contenido escrito en el archivo.");
+   
+			// imprimir un estado de cuenta en un archivo de texto
+			// crear el archivo
+			// Ruta del archivo que deseas crear o sobrescribir
+		string archivo = "estado_cuenta.txt";
+		
+		
+			Console.WriteLine("Estado de cuenta mensual:");
+			// escribir en el archivo las cuotas de mantenimiento de cada departamento con su respectivo propietario
+			foreach (var departamento in departamentos)
+			{
+				Console.WriteLine($"{departamento.Propietario.Nombre}: {departamento.CuotaMantenimiento:C}");
+			}
+			Console.WriteLine($"\n\n");
+			Console.WriteLine($"Ingresos: {ingresos:C}");
+			// escribir en el archivo los servicios pagados
+			Console.WriteLine("Servicios pagados:");
+			foreach (var servicio in servicios)
+			{
+				Console.WriteLine($"{servicio.Nombre}: {servicio.Costo:C}");
+			}
+			Console.WriteLine($"Egresos: {egresos:C}");
+			
+			// escribir en el archivo el saldo total
+			Console.WriteLine($"Saldo total: {CalcularSaldoTotal():C}");
+			
+			// escribir en el archivo los deudores
 			Console.WriteLine("\nDeudores:");
 			foreach (var departamento in departamentos)
 			{
 				if (departamento.Propietario.Saldo < departamento.CuotaMantenimiento)
 				{
-					Console.WriteLine($"{departamento.Propietario.Nombre}: {departamento.Propietario.Saldo:C}");
+					Console.WriteLine($"{departamento.Propietario.Nombre}: {departamento.CuotaMantenimiento-departamento.Propietario.Saldo:C}");
 				}
 			}
+			
+			// repetir el estado de cuenta en el archivo de texto llamado estado_cuenta.txt
+			
+			string contenido2 = "estado de cuenta mensual:\n";
+			foreach (var departamento in departamentos)
+			{
+				contenido2 += $"{departamento.Propietario.Nombre}: {departamento.CuotaMantenimiento:C}\n";
+			}
+			contenido2 += $"\n\n";
+			contenido2 += $"Ingresos: {ingresos:C}\n";
+			foreach (var servicio in servicios)
+			{
+				contenido2 += $"{servicio.Nombre}: {servicio.Costo:C}\n";
+			}
+			contenido2 += $"Egresos: {egresos:C}\n";
+			contenido2 += $"Saldo total: {CalcularSaldoTotal():C}\n";
+			contenido2 += "\nDeudores:\n";
+			foreach (var departamento in departamentos)
+			{
+				if (departamento.Propietario.Saldo < departamento.CuotaMantenimiento)
+				{
+					contenido2 += $"{departamento.Propietario.Nombre}: {departamento.Propietario.Saldo:C}\n";
+				}
+			}
+			File.WriteAllText(archivo, contenido2);
+			
 		}
 
 		private decimal CalcularSaldoTotal()
@@ -132,11 +235,11 @@ namespace SistemaAdministracionEdificio
 		static void Main()
 		{
 			// Crear objetos
-			Departamento depto1 = new Departamento { Propietario = new Propietario { Nombre = "Propietario1", Saldo = 1000 }, CuotaMantenimiento = 300 };
-			Departamento depto2 = new Departamento { Propietario = new Propietario { Nombre = "Propietario2", Saldo = 800 }, CuotaMantenimiento = 350 };
-			Departamento depto3 = new Departamento { Propietario = new Propietario { Nombre = "Propietario3", Saldo = 500 }, CuotaMantenimiento = 400 };
-			Departamento depto4 = new Departamento { Propietario = new Propietario { Nombre = "Propietario4", Saldo = 3000 }, CuotaMantenimiento = 450 };
-			Departamento depto5 = new Departamento { Propietario = new Propietario { Nombre = "Propietario5", Saldo = 2000 }, CuotaMantenimiento = 500 };
+			Departamento depto1 = new Departamento { Propietario = new Propietario { Nombre = "Juan Perez", Saldo = 1000 }, CuotaMantenimiento = 300 };
+			Departamento depto2 = new Departamento { Propietario = new Propietario { Nombre = "Eduardo Lopez", Saldo = 2000 }, CuotaMantenimiento = 350 };
+			Departamento depto3 = new Departamento { Propietario = new Propietario { Nombre = "Maria Hernandez", Saldo = 15 }, CuotaMantenimiento = 400 };
+			Departamento depto4 = new Departamento { Propietario = new Propietario { Nombre = "Pedro Sanchez", Saldo = 100 }, CuotaMantenimiento = 450 };
+			Departamento depto5 = new Departamento { Propietario = new Propietario { Nombre = "Ana Garcia", Saldo = 2500 }, CuotaMantenimiento = 500 };
 			
 
 
@@ -198,61 +301,31 @@ namespace SistemaAdministracionEdificio
 						Console.ReadKey();
 						break;
 					case 2:
-						Console.Write("Elija el departamento a pagar o precione 6 para pagar todos: ");
+						int i = 1;
+						
+						foreach (var departamento in administrador.Departamentos)
+						{
+							
+							Console.WriteLine($"{i}. {departamento.Propietario.Nombre}: {departamento.CuotaMantenimiento:C}");
+							i++;
+						}
+						Console.WriteLine($"Elija el departamento a pagar o precione {i++} para pagar todos");
 						int depto = int.Parse(Console.ReadLine());
-							switch (depto)
+						if (depto == i)
+						{
+							foreach (var departamento in administrador.Departamentos)
 							{
-								case 1:
-									Console.WriteLine("Realizando pago de mantenimiento...");
-									// esperar 3 segundos
-									Thread.Sleep(2500);
-									administrador.RealizarPagoMantenimiento(depto1);
-									Console.WriteLine("Pago realizado");
-									Thread.Sleep(1000);
-									break;
-								case 2:
-									Console.WriteLine("Realizando pago de mantenimiento...");
-									Thread.Sleep(2500);
-									administrador.RealizarPagoMantenimiento(depto2);
-									Console.WriteLine("Pago realizado");
-									Thread.Sleep(1000);
-									break;
-								case 3:
-									Console.WriteLine("Realizando pago de mantenimiento...");
-									Thread.Sleep(2500);
-									administrador.RealizarPagoMantenimiento(depto3);
-									Console.WriteLine("Pago realizado");
-									Thread.Sleep(1000);
-									break;
-								case 4:
-									Console.WriteLine("Realizando pago de mantenimiento...");
-									Thread.Sleep(2500);
-									administrador.RealizarPagoMantenimiento(depto4);
-									Console.WriteLine("Pago realizado");
-									Thread.Sleep(1000);
-									break;
-								case 5:
-									Console.WriteLine("Realizando pago de mantenimiento...");
-									Thread.Sleep(2500);
-									administrador.RealizarPagoMantenimiento(depto5);
-									Console.WriteLine("Pago realizado");
-									Thread.Sleep(1000);
-									break;
-								case 6:
-									Console.WriteLine("Realizando pago de mantenimiento...");
-									Thread.Sleep(2500);
-									administrador.RealizarPagoMantenimiento(depto1);
-									administrador.RealizarPagoMantenimiento(depto2);
-									administrador.RealizarPagoMantenimiento(depto3);
-									administrador.RealizarPagoMantenimiento(depto4);
-									administrador.RealizarPagoMantenimiento(depto5);
-									Console.WriteLine("Pago realizado");
-									Thread.Sleep(1000);
-									break;
-								default:
-									Console.WriteLine("Opcion invalida");
-									break;
-							}	
+								administrador.RealizarPagoMantenimiento(departamento);
+							}
+						}
+						else if(depto == i++)
+						{
+							// pagar todos
+							foreach (var departamento in administrador.Departamentos)
+							{
+								administrador.RealizarPagoMantenimiento(departamento);
+							}
+						}
 						Console.WriteLine("Presione una tecla para continuar...");
 						Console.ReadKey();					
 						break;

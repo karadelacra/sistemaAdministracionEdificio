@@ -1,0 +1,21 @@
+estado de cuenta mensual:
+Juan Perez: $300.00
+Eduardo Lopez: $350.00
+Maria Hernandez: $400.00
+Pedro Sanchez: $450.00
+Ana Garcia: $500.00
+
+
+Ingresos: $0.00
+Luz: $100.00
+Recoleccion de basura: $50.00
+Limpieza: $50.00
+Compra de material: $200.00
+Reparaciones: $150.00
+Gas: $100.00
+Egresos: $0.00
+Saldo total: $0.00
+
+Deudores:
+Maria Hernandez: $15.00
+Pedro Sanchez: $100.00
