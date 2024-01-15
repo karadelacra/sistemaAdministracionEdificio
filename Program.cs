@@ -76,6 +76,12 @@ namespace SistemaAdministracionEdificio
 			set { mantenimientoPagado = value; }
 		}
 
+		public List<Servicio> Servicios
+		{
+			get { return servicios; }
+			set { servicios = value; }
+		}
+
 		public List<Propietario> Propietarios
 		{
 			get { return propietarios; }
@@ -113,43 +119,84 @@ namespace SistemaAdministracionEdificio
 				egresos += servicio.Costo;
 				servicio.MesesPagados.Add(meses);
 			}
+			mantenimientoPagado = true;
+			Console.WriteLine("Servicios pagados.");
+			Console.WriteLine("Presione una tecla para continuar...");
+			Console.ReadKey();
 		}
+
 
 		public void GenerarEstadoCuenta()
 		{
 			int totIngresos = 0;
 
+
+			DateTime fecha = DateTime.Now;
+			string FechaFormateada = fecha.ToString("MMMM", new System.Globalization.CultureInfo("es-ES")) + " del " + fecha.ToString("yyyy", new System.Globalization.CultureInfo("es-ES"));
+
+			string archivo = "estado_cuenta.txt";
+
 			Console.WriteLine("Estado de cuenta mensual:");
+			// escribir en el archivo las cuotas de mantenimiento de cada departamento con su respectivo propietario
 			foreach (var propietario in propietarios)
 			{
 				Console.WriteLine($"{propietario.Nombre}: {propietario.CuotaMantenimiento:C}");
 			}
-			Console.WriteLine("\n\n");
-
+			Console.WriteLine($"\n\n");
 			foreach (var servicio in servicios)
 			{
 				totIngresos += Convert.ToInt32(servicio.Costo);
 			}
-
 			Console.WriteLine($"Ingresos: {totIngresos:C}");
-
+			// escribir en el archivo los servicios pagados
 			Console.WriteLine("Servicios pagados:");
 			foreach (var servicio in servicios)
 			{
 				Console.WriteLine($"{servicio.Nombre}: {servicio.Costo:C}");
 			}
-
 			Console.WriteLine($"Egresos: {egresos:C}");
+
+			// escribir en el archivo el saldo total
 			Console.WriteLine($"Saldo total: {CalcularSaldoTotal():C}");
 
+			// escribir en el archivo los deudores
 			Console.WriteLine("\nDeudores:");
 			foreach (var propietario in propietarios)
 			{
 				if (propietario.Saldo < propietario.CuotaMantenimiento)
 				{
-					Console.WriteLine($"{propietario.Nombre}: {propietario.Saldo:C}");
+					Console.WriteLine($"{propietario.Nombre}: {propietario.CuotaMantenimiento - propietario.Saldo:C}");
 				}
 			}
+
+			// repetir el estado de cuenta en el archivo de texto llamado estado_cuenta.txt
+
+
+
+
+			string contenido2 = $"Estado de cuenta del mes de {FechaFormateada}:\n\n";
+			foreach (var propietario in propietarios)
+			{
+				contenido2 += $"{propietario.Nombre}: {propietario.CuotaMantenimiento:C}\n";
+			}
+			contenido2 += $"\n\n";
+			contenido2 += $"Ingresos: {totIngresos:C}\n";
+			foreach (var servicio in servicios)
+			{
+				contenido2 += $"{servicio.Nombre}: {servicio.Costo:C}\n";
+			}
+			contenido2 += $"Egresos: {egresos:C}\n";
+			contenido2 += $"Saldo total: {CalcularSaldoTotal():C}\n";
+			contenido2 += "\nDeudores:\n";
+			foreach (var propietario in propietarios)
+			{
+				if (propietario.Saldo < propietario.CuotaMantenimiento)
+				{
+					contenido2 += $"{propietario.Nombre}: {propietario.CuotaMantenimiento - propietario.Saldo:C}\n";
+				}
+			}
+			contenido2 += "\n\nPagado el dia " + fecha.ToString("dd/MM/yyyy", new System.Globalization.CultureInfo("es-ES")) + " a las " + fecha.ToString("HH:mm:ss", new System.Globalization.CultureInfo("es-ES")) + "\n";
+			File.WriteAllText(archivo, contenido2);
 		}
 
 		public decimal CalcularSaldoTotal()
@@ -198,36 +245,32 @@ namespace SistemaAdministracionEdificio
 				Console.WriteLine("4. Agregar propietarios");
 				Console.WriteLine("5. Agregar servicios");
 				Console.WriteLine("6. Modificar propietarios");
-				Console.WriteLine("7. Modificar servicios");
 				Console.WriteLine("8. Salir");
 				Console.Write("Opcion: ");
 				opcion = int.Parse(Console.ReadLine());
-
+				//
+				
 				switch (opcion)
 				{
 					case 1:
-						if (!administrador.MantenimientoPagado)
+						if (administrador.MantenimientoPagado == true)//Se valida si el mantenimiento ya fue pagado, se supone que el dinero para pagar los servicios sale del pago de mantenimiento
 						{
-							Console.WriteLine("Primero debe pagar el mantenimiento");
-							Thread.Sleep(2500);
-							Console.WriteLine("Presione una tecla para continuar...");
-							Console.ReadKey();
-							break;
-						}
-						else
-						{
-							Console.WriteLine("1. Pagar todos los servicios");
-
-							if (int.Parse(Console.ReadLine()) == 1)
+							Console.WriteLine("0. Pagar todos los servicios");
+							Console.WriteLine("1. Pagar un servicio en especifico");
+							if (int.Parse(Console.ReadLine()) == 0)
 							{
 								administrador.PagarServicios(0);
+								Console.WriteLine("Servicios pagados.");
+								Console.WriteLine("Presione una tecla para continuar...");
+								Console.ReadKey();
 							}
 							else
 							{
 								int j = 0;
-								for (j = 0; j < administrador.Propietarios.Count; j++)
+								//servicios
+								for (j = 0; j < administrador.Servicios.Count; j++)
 								{
-									Console.WriteLine($"{j + 1}. {administrador.Propietarios[j].Nombre}");
+									Console.WriteLine($"{j + 1}. {administrador.Servicios[j].Nombre}");//ya nomas subelo a github y ya
 								}
 								Console.WriteLine("Elija el servicio a pagar");
 								int op = int.Parse(Console.ReadLine());
@@ -235,9 +278,14 @@ namespace SistemaAdministracionEdificio
 								Console.WriteLine("Elija el mes a pagar");
 								mes = int.Parse(Console.ReadLine());
 								administrador.PagarServicios(mes);
+
 							}
-							break;
 						}
+						else
+						{
+							Console.WriteLine("El mantenimiento no ha sido pagado");
+						}
+						break;
 					case 3:
 						Console.WriteLine("Generando estado de cuenta...");
 						Thread.Sleep(2500);
@@ -247,25 +295,27 @@ namespace SistemaAdministracionEdificio
 						break;
 					case 2:
 						int i = 1;
-						for(i = 1; i < 6; i++)
+						for (i = 1; i <= administrador.Propietarios.Count; i++)
 						{
-							Console.WriteLine($"{i}. {administrador.Propietarios[i - 1].Nombre}");
+							Console.WriteLine($"{i}. {administrador.Propietarios[i - 1].Nombre} (departamento {administrador.Propietarios[i - 1].NumeroDepto})");
 						}
 						Console.WriteLine("Elija el departamento a pagar");
 						int depto = int.Parse(Console.ReadLine());
 						administrador.RealizarPagoMantenimiento(administrador.Propietarios[depto - 1]);
+						administrador.MantenimientoPagado = true;
 						break;
 					case 4:
 						Console.WriteLine("Ingrese el nombre del propietario");
 						string nombre = Console.ReadLine();
 						Console.WriteLine("Ingrese el saldo del propietario");
 						decimal saldo = decimal.Parse(Console.ReadLine());
-						Console.WriteLine("Ingrese el numero de departamento");
-						int numDepto = int.Parse(Console.ReadLine());
+						//Console.WriteLine("Ingrese el numero de departamento");
+						//int numDepto = int.Parse(Console.ReadLine());
+						int numDepto = administrador.Propietarios.Count + 1;
 						Console.WriteLine("Ingrese la cuota de mantenimiento");
 						decimal cuota = decimal.Parse(Console.ReadLine());
-						Propietario propietario = new Propietario(numDepto, cuota, nombre, saldo);
-						administrador.AgregarPropietario(propietario);
+						Propietario propietarionvo = new Propietario(numDepto, cuota, nombre, saldo);
+						administrador.AgregarPropietario(propietarionvo);
 						break;
 					case 5:
 						Console.WriteLine("Ingrese el nombre del servicio");
@@ -276,7 +326,7 @@ namespace SistemaAdministracionEdificio
 						administrador.AgregarServicio(servicio);
 						break;
 					case 6:
-						for(int j = 0; j < administrador.Propietarios.Count; j++)
+						for (int j = 0; j < administrador.Propietarios.Count; j++)
 						{
 							Console.WriteLine($"{j + 1}. {administrador.Propietarios[j].Nombre}");
 						}
@@ -286,8 +336,9 @@ namespace SistemaAdministracionEdificio
 						string nombreProp = Console.ReadLine();
 						Console.WriteLine("Ingrese el nuevo saldo del propietario");
 						decimal saldoProp = decimal.Parse(Console.ReadLine());
-						Console.WriteLine("Ingrese el nuevo numero de departamento");
-						int numDeptoProp = int.Parse(Console.ReadLine());
+						//Console.WriteLine("Ingrese el nuevo numero de departamento");
+						//int numDeptoProp = int.Parse(Console.ReadLine());
+						int numDeptoProp = administrador.Propietarios[numProp - 1].NumeroDepto;
 						Console.WriteLine("Ingrese la nueva cuota de mantenimiento");
 						decimal cuotaProp = decimal.Parse(Console.ReadLine());
 						administrador.Propietarios[numProp - 1].Nombre = nombreProp;

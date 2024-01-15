@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("edificio")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4057d252b3afef550a44cf6dc5c6ee7b141f840a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8a385e51bd4c96bf372bdb95a4899e0aadd7f5d7")]
 [assembly: System.Reflection.AssemblyProductAttribute("edificio")]
 [assembly: System.Reflection.AssemblyTitleAttribute("edificio")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

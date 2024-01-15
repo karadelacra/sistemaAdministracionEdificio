@@ -1,12 +1,15 @@
-estado de cuenta mensual:
+Estado de cuenta del mes de enero del 2024:
+
 Juan Perez: $300.00
-Eduardo Lopez: $350.00
-Maria Hernandez: $400.00
-Pedro Sanchez: $450.00
-Ana Garcia: $500.00
+Maria Lopez: $300.00
+Pedro Hernandez: $300.00
+Ana Ramirez: $300.00
+Jose Gonzalez: $300.00
+colita limpia: $300.00
+xxx: $8,000.00
 
 
-Ingresos: $0.00
+Ingresos: $650.00
 Luz: $100.00
 Recoleccion de basura: $50.00
 Limpieza: $50.00
@@ -14,8 +17,11 @@ Compra de material: $200.00
 Reparaciones: $150.00
 Gas: $100.00
 Egresos: $0.00
-Saldo total: $0.00
+Saldo total: $7,900.00
 
 Deudores:
-Maria Hernandez: $15.00
-Pedro Sanchez: $100.00
+colita limpia: $400.00
+xxx: $5,000.00
+
+
+Pagado el dia 15/01/2024 a las 00:17:42
