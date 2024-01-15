@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\padil\\OneDrive\\Documentos\\PadillaK\\ESCOM\\CAMPECHANO 2, 3 y 4\\paradigmas\\proyecto\\sistemaAdministracionEdificio\\edificio.csproj": {}
+    "c:\\Users\\padil\\OneDrive\\Documentos\\PadillaK\\ESCOM\\CAMPECHANO 2, 3 y 4\\paradigmas\\proyecto\\sistemaAdministracionEdificio\\edificio.csproj": {}
   },
   "projects": {
-    "C:\\Users\\padil\\OneDrive\\Documentos\\PadillaK\\ESCOM\\CAMPECHANO 2, 3 y 4\\paradigmas\\proyecto\\sistemaAdministracionEdificio\\edificio.csproj": {
+    "c:\\Users\\padil\\OneDrive\\Documentos\\PadillaK\\ESCOM\\CAMPECHANO 2, 3 y 4\\paradigmas\\proyecto\\sistemaAdministracionEdificio\\edificio.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\padil\\OneDrive\\Documentos\\PadillaK\\ESCOM\\CAMPECHANO 2, 3 y 4\\paradigmas\\proyecto\\sistemaAdministracionEdificio\\edificio.csproj",
+        "projectUniqueName": "c:\\Users\\padil\\OneDrive\\Documentos\\PadillaK\\ESCOM\\CAMPECHANO 2, 3 y 4\\paradigmas\\proyecto\\sistemaAdministracionEdificio\\edificio.csproj",
         "projectName": "edificio",
-        "projectPath": "C:\\Users\\padil\\OneDrive\\Documentos\\PadillaK\\ESCOM\\CAMPECHANO 2, 3 y 4\\paradigmas\\proyecto\\sistemaAdministracionEdificio\\edificio.csproj",
+        "projectPath": "c:\\Users\\padil\\OneDrive\\Documentos\\PadillaK\\ESCOM\\CAMPECHANO 2, 3 y 4\\paradigmas\\proyecto\\sistemaAdministracionEdificio\\edificio.csproj",
         "packagesPath": "C:\\Users\\padil\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\padil\\OneDrive\\Documentos\\PadillaK\\ESCOM\\CAMPECHANO 2, 3 y 4\\paradigmas\\proyecto\\sistemaAdministracionEdificio\\obj\\",
+        "outputPath": "c:\\Users\\padil\\OneDrive\\Documentos\\PadillaK\\ESCOM\\CAMPECHANO 2, 3 y 4\\paradigmas\\proyecto\\sistemaAdministracionEdificio\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
